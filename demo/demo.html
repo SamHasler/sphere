@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Sphere Renderer</title>
+<style>
+body, html {height: 100%;}
+body {
+    background-color: black;
+	margin:0; padding:0;
+	color: white;
+}
+#outer  {
+  display: table;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+}
+
+#inner {
+display: table-cell;
+  vertical-align: middle;
+}
+a {color: white;}
+</style>
+<script src="Stats.js"></script>
+<script src="requestanimationframe.polyfill.js"></script>
+<script src="..\sphere.js"></script>
+<script>
+	function go() {
+		var texture = "earth1024x1024.jpg";
+		createSphere(document.getElementById("sphere"),texture);
+
+		var stats = new Stats();
+		// Align top-left
+		stats.getDomElement().style.position = 'relative';
+		stats.getDomElement().style.marginLeft = '-40px';
+		stats.getDomElement().style.left = '50%';
+		
+		document.getElementById("fps").appendChild(stats.getDomElement());
+		setInterval(function () {
+		  stats.update();
+		  
+		}, 1000 / 60);
+	}
+</script>
+</head>
+<body onload="go()">
+    <a href="https://github.com/SamHasler/sphere"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork on GitHub"></a>
+	<div id="outer">
+		<div id="inner">
+			<h3>sphere.js</h3>
+			<canvas id="sphere" width="300" height="300">
+				Sorry, your browser does not support the canvas element
+			</canvas>
+			<div id="fps"></div>
+			<div>Sphere rendered in JavaScript / Canvas 
+				that renders an image onto the surface of a perfect sphere rather than using triangles / geometry.
+			</div>
+			<div><a href="../docs/sphere.html">Read the annotated source</a></div>
+		</div>
+	</div>
+</body>
+</html>
