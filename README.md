@@ -3,4 +3,4 @@ sphere
 
 render a mathematically perfect textured sphere on a HTML5 canvas
 
-[Demo](http://sam.haslers.info/render-sphere/JavaScript+Canvas.html)
+[Demo](https://c9.io/samhasler/sphere/workspace/demo/demo.html)
